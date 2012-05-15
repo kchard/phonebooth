@@ -268,32 +268,31 @@ public class EntityProxyOneToManyTest extends EntityProxyTestBase {
 		assertEquals(a, b2.getManyTo1A());
 	}
 	
-	public void testOneToManyGetReflexive() {
+	@Test
+	public void testOneToManyAddGetRemoveReflexive() {
 		A a = (A) EntityProxy.createProxy(createEntityNode(A.class), A.class);
-		assertNull(a.get1toManyReflexive());
-	}
-	
-	@Test(expected = IllegalRelationshipException.class)
-	public void testOneToManyAddReflexive() {
-		A a = (A) EntityProxy.createProxy(createEntityNode(A.class), A.class);
+		
+		assertEquals(0, a.get1toManyReflexive().size());
+		
 		a.add1toManyReflexive(a);
-	}
-	
-	@Test(expected = IllegalRelationshipException.class)
-	public void testOneToManyRemoveReflexive() {
-		A a = (A) EntityProxy.createProxy(createEntityNode(A.class), A.class);
+		assertEquals(1, a.get1toManyReflexive().size());
+		assertEquals(a, a.get1toManyReflexive().get(0));
+		
 		a.remove1ToManyReflexive(a);
+		assertEquals(0, a.get1toManyReflexive().size());
 	}
 	
-	public void testManyToOneGetReflexive() {
+	@Test
+	public void testManyToOneSetGetReflexive() {
 		A a = (A) EntityProxy.createProxy(createEntityNode(A.class), A.class);
+		
 		assertNull(a.getManyTo1Reflexive());
-	}
-	
-	@Test(expected = IllegalRelationshipException.class)
-	public void testManyToOneSetReflexive() {
-		A a = (A) EntityProxy.createProxy(createEntityNode(A.class), A.class);
+		
 		a.setManyTo1Reflexive(a);
+		assertEquals(a, a.getManyTo1Reflexive());
+		
+		a.setManyTo1Reflexive(null);
+		assertNull(a.getManyTo1Reflexive());
 	}
 	
 	private interface A {

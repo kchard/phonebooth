@@ -191,10 +191,6 @@ final class EntityProxy implements InvocationHandler {
 				
 			EntityNode otherEntity = unwrap(args[0]);
 			
-			if(entity.getEntityClass().equals(otherEntity.getEntityClass())) {
-				throw new IllegalRelationshipException();
-			}
-			
 			ManyToOne manyToOne = getRelationshipNamed(otherEntity.getEntityClass(), oneToMany.name(), ManyToOne.class);
 			if(manyToOne == null) {
 				throw new IllegalRelationshipException();
@@ -245,10 +241,6 @@ final class EntityProxy implements InvocationHandler {
 			}
 				
 			EntityNode otherEntity = unwrap(args[0]);
-			
-			if(entity.getEntityClass().equals(otherEntity.getEntityClass())) {
-				throw new IllegalRelationshipException();
-			}
 			
 			OneToMany oneToMany = getRelationshipNamed(otherEntity.getEntityClass(), manyToOne.name(), OneToMany.class);
 			if(oneToMany == null) {
