@@ -1,0 +1,9 @@
+# eclipse artifacts #
+#####################
+.project
+.classpath
+.settings
+
+# mvn artifacts #
+#################
+target/
