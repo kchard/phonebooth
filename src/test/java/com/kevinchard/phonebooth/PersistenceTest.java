@@ -13,7 +13,7 @@ public class PersistenceTest {
 	
 	@Test(expected = RuntimeException.class)
 	public void testCreateEntityManagerFactoryWithNoGraphDatabaseService() {
-		Persistence.create("com.kevinchard.neo.impl.NeoEntityManagerFactory").build();
+		Persistence.create("com.kevinchard.phonebooth.core.NeoEntityManagerFactory").build();
 	}
 	
 	@Test(expected = RuntimeException.class)
@@ -24,7 +24,7 @@ public class PersistenceTest {
 	@Test
 	public void testDefaultCreateEntityManagerFactory() {
 		
-		EntityManagerFactory emf = Persistence.create("com.kevinchard.neo.impl.NeoEntityManagerFactory")
+		EntityManagerFactory emf = Persistence.create("com.kevinchard.phonebooth.core.NeoEntityManagerFactory")
 											  .withGraphDatabaseService(new ImpermanentGraphDatabase())
 											  .build();
 		
