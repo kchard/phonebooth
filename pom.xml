@@ -8,20 +8,27 @@
 	<packaging>jar</packaging>
 
 	<name>phonebooth</name>
-	<url>http://maven.apache.org</url>
+	<url>https://github.com/kchard/phonebooth</url>
 
 	<properties>
+
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		
+
 		<!-- Plugin Versions -->
 		<compiler.plugin.version>2.3.2</compiler.plugin.version>
-	
+
 		<!-- Library Versions -->
 		<java.version>1.6</java.version>
 		<neo4j-version>1.7</neo4j-version>
 		<junit.version>4.10</junit.version>
-		
+
 	</properties>
+
+	<scm>
+		<connection>scm:git:git://github.com/kchard/phonebooth.git</connection>
+		<developerConnection>scm:git:git@github.com:kchard/phonebooth.git</developerConnection>
+		<url>https://github.com/kchard/phonebooth</url>
+	</scm>
 
 	<dependencies>
 		<dependency>
@@ -42,7 +49,7 @@
 			<artifactId>neo4j-kernel</artifactId>
 			<version>${neo4j-version}</version>
 			<type>test-jar</type>
-			<!--  scope>test</scope-->
+			<!-- scope>test</scope -->
 		</dependency>
 	</dependencies>
 
